@@ -1,6 +1,8 @@
 import React, { Component } from "React"
 import { View, Text, StyleSheet, Switch, Button, TextInput } from "react-native"
 
+import { Icon } from "react-native-elements"
+
 class Row extends Component {
   render() {
     const { complete } = this.props
@@ -13,26 +15,21 @@ class Row extends Component {
     )
 
     const EditButton = (
-      <Button title="Edit" color="green" onPress={this.props.onEdit} />
+      <Icon name="mode-edit" color="green" onPress={this.props.onEdit} />
     )
 
     const removeButton = (
-      <Button title="Rimuovi" color="red" onPress={this.props.onRemoveItem} />
+      <Icon name="delete" color="red" onPress={this.props.onRemoveItem} />
     )
 
     const doneButton = (
-      <Button
-        title="Salva"
-        color="blue"
-        onPress={() => this.props.onEdit(false)}
-      />
+      <Icon name="save" color="blue" onPress={() => this.props.onEdit(false)} />
     )
 
     const editingComponent = (
       <View style={styles.textWrapper}>
         <TextInput
           style={styles.input}
-          multiline
           onChangeText={this.props.onUpdate}
           value={this.props.text}
           autoFocus
